@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Reliable Broadcast.iml" filepath="$PROJECT_DIR$/Reliable Broadcast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reliablebroadcast.iml" filepath="$PROJECT_DIR$/reliablebroadcast.iml" />
     </modules>
   </component>
 </project>
