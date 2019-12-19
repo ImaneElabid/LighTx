@@ -1,29 +1,34 @@
 package Protocol;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 public class Message implements Serializable {
 
-    private String message;
+    private Object message;
     private String type;
     private String signature;
     private int senderID;
     private int forwarderID;
+    HashMap<Object, String> pair= new HashMap<>();
 
-    public Message(int id){                        // GossipSubscribe
-        this.type = "GossipSub";
+    public Message(String type, int id){
+        this.type = type;                              //"GossipSub" or "EchoSub" or "ReadySub"
         this.senderID = id;
     }
 
-    public Message(String message, int id, int forwarderID, String signature){         // GossipMessage
-        this.type = "Gossip";
+    public Message(Object message, int senderId,
+                   int forwarderID, String signature){
+        this.type =  "Gossip";                              //  "Gossip" or "Echo" or "Ready";
         this.message = message;
-        this.senderID = id;
-        this.forwarderID = forwarderID;
         this.signature = signature;
+        this.senderID = senderId;
+        this.forwarderID = forwarderID;
+        this.pair.put(message, signature);
+
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
@@ -41,5 +46,17 @@ public class Message implements Serializable {
 
     public int getForwarderID() {
         return forwarderID;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public HashMap<Object, String> getPair() {
+        return pair;
+    }
+
+    public void setForwarderID(int forwarderID) {
+        this.forwarderID = forwarderID;
     }
 }
