@@ -24,9 +24,9 @@ public class ClientThread extends Thread {
 
     public void initCommunicationChannel() throws Exception {
         for (int i = 0; i <= this.nodesNbr; i++) {
-            String s = "C:/Program Files/Java/jdk-12/bin/server" + i + ".jks";
-            System.setProperty("javax.net.ssl.trustStore", s);
-            System.setProperty("javax.net.ssl.trustStorePassword", "123456");
+//            String s = "C:/Program Files/Java/jdk-12/bin/server" + i + ".jks";
+//            System.setProperty("javax.net.ssl.trustStore", s);
+//            System.setProperty("javax.net.ssl.trustStorePassword", "123456");
             SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
             int port = Converter.PORT + i;
             sslsocket = (SSLSocket) sslsocketfactory.createSocket("localhost", port);

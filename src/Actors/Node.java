@@ -56,6 +56,7 @@ public class Node extends Thread {
     private AtomicBoolean alreadyExecuted = new AtomicBoolean(false);
 
 
+    static int gossipCount, echoCount, readyCount;
     /***********************    Constructor    **********************/
     public Node(String keystore, int port, int id, int protocol) throws IOException, NoSuchAlgorithmException {
         this.id = id;

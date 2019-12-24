@@ -129,13 +129,19 @@ public class ServerThread extends Thread {
 
                     case "Gossip":
                         rcvGossip(msg);
+                        synchronized(node){
+                        node.gossipCount++;}
                         break;
 
                     case "Echo":
                         rcvEcho(msg);
+                        synchronized(node){
+                            node.echoCount++;}
                         break;
 
                     case "Ready":
+                        synchronized(node){
+                            node.readyCount++;}
                         rcvReady(msg);
                         break;
                 }
