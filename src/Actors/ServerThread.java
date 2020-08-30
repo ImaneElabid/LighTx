@@ -25,11 +25,11 @@ public class ServerThread extends Thread {
                         break;
 
                     case "Pre-Trusted" :
-                        node.eigen.rcvPreTrustedSubscription(msg);
+                        node.eigenReputation.rcvPreTrustedSubscription(msg);
                         break;
 
                     case "score" :
-                        node.eigen.rcvScore(msg);
+                        node.eigenReputation.rcvScore(msg);
                         break;
 
                     case "GossipSub":

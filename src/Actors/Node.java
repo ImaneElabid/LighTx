@@ -28,7 +28,7 @@ public class Node extends Thread {
     private ServerSocket socket;
     ArrayList<Socket> nodesSockets = new ArrayList();
     int id;
-    Eigen eigen;
+    EigenReputation eigenReputation;
     /**************************************************************************************/
     PublicKey pubKey;
     private PrivateKey privateKey;
@@ -51,7 +51,7 @@ public class Node extends Thread {
         this.socket = new ServerSocket(port);
         generateKeys();
         nodesInfo.put(this.id, this.pubKey);
-         eigen = new Eigen(this);
+         eigenReputation = new EigenReputation(this);
     }
 
     /*******************   Getters & Setters   *********************/

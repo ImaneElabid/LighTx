@@ -15,7 +15,7 @@ import static java.lang.Thread.sleep;
  */
 
 
-public class Eigen {
+public class EigenReputation {
     Node node;
     AtomicInteger roundSending = new AtomicInteger(0), roundOfComputation = new AtomicInteger(0);
     double[] p = new double[nodesNbr];
@@ -32,7 +32,7 @@ public class Eigen {
 
     /************************************************************************/
 
-    public Eigen(Node n) {
+    public EigenReputation(Node n) {
         this.node = n;
         this.p = computePretrustVector();
         setLocalScore(nodesNbr);
