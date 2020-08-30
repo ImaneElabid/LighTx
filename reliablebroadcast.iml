@@ -16,10 +16,31 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <ANNOTATIONS>
+          <root url="jar://$MODULE_DIR$/ObjectSizeFetcher.jar!/" />
+        </ANNOTATIONS>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/ObjectSizeFetcher.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/ObjectSizeFetcher.jar!/" />
+        </JAVADOC>
+        <NATIVE>
+          <root url="jar://$MODULE_DIR$/ObjectSizeFetcher.jar!/" />
+        </NATIVE>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/ObjectSizeFetcher.jar!/" />
+        </SOURCES>
+        <jarDirectory url="jar://$MODULE_DIR$/ObjectSizeFetcher.jar!/" recursive="false" />
+        <jarDirectory url="jar://$MODULE_DIR$/ObjectSizeFetcher.jar!/" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/javagnuplothybrid.jar!/" />
+          <root url="jar://$MODULE_DIR$/ObjectSizeFetcher.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
