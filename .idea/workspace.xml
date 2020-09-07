@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6c4d2b8-c3f9-4780-b4f2-498c3ea270a3" name="Default Changelist" comment="lighTx">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/ClientThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/Eigen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/ServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/ServerThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actors/EigenReputation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/EigenReputation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actors/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Protocol/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol/Converter.java" afterDir="false" />
-    </list>
+    <list default="true" id="b6c4d2b8-c3f9-4780-b4f2-498c3ea270a3" name="Default Changelist" comment="lighTx" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,31 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actors/Node.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="94" column="18" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#generateKeys#0;class#Node#0" />
-                <element signature="method#buildKeyPair#0;class#Node#0" />
-                <element signature="method#sign#0;class#Node#0" />
-                <element signature="method#verify#0;class#Node#0" />
-                <element signature="method#omega#0;class#Node#0" />
-                <element signature="method#waitTillFinished#0;class#Node#0" />
-                <element signature="method#createContent#0;class#Node#0" />
-                <element signature="method#probing#0;class#Node#0" />
-                <element signature="method#rcvProbe#0;class#Node#0" />
-                <element signature="method#measureBW#0;class#Node#0" />
-                <element signature="method#receive#0;class#Node#0" />
-                <element signature="method#send#0;class#Node#0" />
-                <element signature="method#readContent#0;class#Node#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actors/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -137,8 +103,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Protocol/Converter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="374">
+              <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#sam#0;class#Converter#0" />
@@ -269,46 +235,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Actors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Protocol" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="transactions" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -318,7 +245,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../reliablebroadcastSybil" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -348,7 +275,7 @@
   <component name="RunManager" selected="Application.Launcher">
     <configuration name="Launcher" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Actors.Launcher" />
-      <module name="reliablebroadcast" />
+      <module name="LighTx" />
       <option name="PROGRAM_PARAMETERS" value="9 6000" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -356,7 +283,7 @@
     </configuration>
     <configuration name="Matrix" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Actors.Matrix" />
-      <module name="reliablebroadcast" />
+      <module name="LighTx" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Actors.*" />
@@ -369,7 +296,7 @@
     </configuration>
     <configuration name="eigenTrust" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Actors.eigenTrust" />
-      <module name="reliablebroadcast" />
+      <module name="LighTx" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Actors.*" />
@@ -469,10 +396,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14055637" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14055637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -481,7 +407,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5358779" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3923664" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.340458" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3984733" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -860,8 +786,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Protocol/Converter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="374">
+          <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sam#0;class#Converter#0" />
