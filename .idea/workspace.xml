@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6c4d2b8-c3f9-4780-b4f2-498c3ea270a3" name="Default Changelist" comment="" />
+    <list default="true" id="b6c4d2b8-c3f9-4780-b4f2-498c3ea270a3" name="Default Changelist" comment="lighTx">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/ClientThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/Eigen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/ServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/reliablebroadcast/Actors/ServerThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Actors/EigenReputation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/EigenReputation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Actors/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Protocol/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol/Converter.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actors/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+            <state relative-caret-position="96">
+              <caret line="94" column="18" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#generateKeys#0;class#Node#0" />
@@ -29,7 +38,6 @@
                 <element signature="method#sign#0;class#Node#0" />
                 <element signature="method#verify#0;class#Node#0" />
                 <element signature="method#omega#0;class#Node#0" />
-                <element signature="method#sample#0;class#Node#0" />
                 <element signature="method#waitTillFinished#0;class#Node#0" />
                 <element signature="method#createContent#0;class#Node#0" />
                 <element signature="method#probing#0;class#Node#0" />
@@ -46,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actors/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="264">
+              <caret line="53" column="43" lean-forward="true" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#ClientThread#0;class#ClientThread#0" />
@@ -73,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actors/ProbabilisticSecureBroadcast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="272">
               <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -101,17 +109,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actors/EigenReputation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="184">
+              <caret line="92" column="79" selection-start-line="92" selection-start-column="79" selection-end-line="92" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1458#1662#0" />
-                <element signature="e#1668#1853#0" />
-                <element signature="e#1859#2013#0" />
-                <element signature="e#2019#2514#0" />
-                <element signature="e#2812#3812#0" />
-                <element signature="e#5380#6266#0" />
-                <element signature="e#6272#7804#0" />
+                <element signature="method#EigenReputation#0;class#EigenReputation#0" />
+                <element signature="method#setLocalScore#0;class#EigenReputation#0" />
+                <element signature="method#initScoreMatrix#0;class#EigenReputation#0" />
+                <element signature="method#computePretrustVector#0;class#EigenReputation#0" />
+                <element signature="method#SubscribeToPreTrusted#1;class#EigenReputation#0" />
+                <element signature="e#2865#2874#0" expanded="true" />
+                <element signature="method#rcvPreTrustedSubscription#0;class#EigenReputation#0" />
+                <element signature="method#matrixNormalization#0;class#EigenReputation#0" />
+                <element signature="e#3062#3677#1" />
+                <element signature="method#sendLocalScore#0;class#EigenReputation#0" />
+                <element signature="method#computationProcess#0;class#EigenReputation#0" />
+                <element signature="method#StoreReceivedScores#0;class#EigenReputation#0" />
+                <element signature="e#4853#4921#1" />
+                <element signature="method#rcvScore#0;class#EigenReputation#0" />
+                <element signature="method#ComputeGlobalScoreNew#0;class#EigenReputation#0" />
+                <element signature="method#hasConverged#0;class#EigenReputation#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Protocol/Converter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#sam#0;class#Converter#0" />
+                <element signature="e#1999#2069#0" />
               </folding>
             </state>
           </provider>
@@ -129,36 +160,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>t_new of iteration [8/]</find>
-      <find>1) received ROUND 0</find>
-      <find>0) received ROUND 0 ....</find>
-      <find>received ROUND 0</find>
-      <find>-- ROUND NUMBER 0</find>
-      <find>t_new of iteration [0]</find>
-      <find>t_new of iteration [0]</find>
-      <find>SENDING ITERATION : 0</find>
+      <find>roundOfComputation : 1</find>
+      <find>roundSending</find>
+      <find>2) received score [2]</find>
+      <find>t_new of iteration [5//5]</find>
+      <find>finale c_i :</find>
+      <find>t_new of iteration [0//0]</find>
+      <find>t_new of iteration [2//2]</find>
+      <find>(0) t_new of iteration</find>
+      <find>) received score []</find>
+      <find>2</find>
+      <find>T_size</find>
+      <find>hashs</find>
       <find>received score [0]</find>
-      <find>iteration: 0</find>
-      <find>[0//0]</find>
-      <find>) -- ROUND NUMBER 0 Processing..</find>
+      <find>finale c_i :</find>
+      <find>t_new of iteration [0//0]</find>
+      <find>(9) t_new of iteration [4/</find>
+      <find>t_new of iteration [</find>
+      <find>Random</find>
+      <find>finale c_i :</find>
+      <find>fina</find>
+      <find>final</find>
+      <find>received score [0]</find>
+      <find>t_new of iteration [2</find>
       <find>received score [1]</find>
-      <find>from: 0 to:</find>
+      <find>t_new of iteration [2</find>
       <find>received score [0]</find>
-      <find>Initial send</find>
-      <find>sleep</find>
-      <find>n iteration: 0</find>
-      <find>2) received score [0]</find>
-      <find>in iteration: 0</find>
-      <find>2) received score [1]</find>
-      <find>0//0]</find>
-      <find>Initial send</find>
-      <find>iteration: 0</find>
-      <find>in iteration: 1</find>
-      <find>4) 0 :</find>
-      <find>in iteration: 0</find>
-      <find>synchronized</find>
-      <find>received score [0]</find>
-      <find>0) 0 :</find>
+      <find>t_new of iteration [0//0]</find>
+      <find>at iteration: 0</find>
+      <find>at iteration: 0</find>
+      <find>remo</find>
     </findStrings>
     <replaceStrings>
       <replace>HashMap</replace>
@@ -171,7 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/transactions/8.csv" />
         <option value="$PROJECT_DIR$/src/Actors/Router.java" />
         <option value="$PROJECT_DIR$/src/transactions/9.csv" />
         <option value="$PROJECT_DIR$/src/Actors/Blockchain.java" />
@@ -219,16 +249,17 @@
         <option value="$PROJECT_DIR$/src/Actors/ServerThread.java" />
         <option value="$PROJECT_DIR$/src/Actors/ClientThread.java" />
         <option value="$PROJECT_DIR$/src/Actors/ProbabilisticSecureBroadcast.java" />
+        <option value="$PROJECT_DIR$/src/Actors/Eigen.java" />
         <option value="$PROJECT_DIR$/src/Actors/Node.java" />
         <option value="$PROJECT_DIR$/src/Protocol/Converter.java" />
-        <option value="$PROJECT_DIR$/src/Actors/Eigen.java" />
+        <option value="$PROJECT_DIR$/src/Actors/EigenReputation.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="42" />
-    <option name="width" value="1216" />
+    <option name="width" value="962" />
     <option name="height" value="733" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -244,24 +275,6 @@
             <path>
               <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
               <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reliablebroadcast_BW" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="reliablebroadcast" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="reliablebroadcast_BW" type="b2602c69:ProjectViewProjectNode" />
@@ -431,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598803562463</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="lighTx">
+      <created>1599495796546</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1599495796546</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers>
       <Redmine url="https://redmine-simlab.um6p.ma">
         <option name="APIKey" value="b2e52bdf6edb76c218e9eff502ed6abfc25e4c17" />
@@ -449,9 +469,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="32" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2035139" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.14055637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -460,15 +481,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5358779" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.053435113" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3923664" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3984733" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32977098" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.50076336" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32852563" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32824427" />
-      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.37251908" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.35114503" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.37099236" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24963397" />
@@ -480,7 +501,7 @@
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.329429" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.116398245" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14055637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -489,15 +510,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5358779" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4183206" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.48091602" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3984733" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32977098" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.50076336" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32852563" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32824427" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.27175573" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.35114503" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.371118" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24963397" />
@@ -519,11 +540,38 @@
       </list>
     </option>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="-" />
     <MESSAGE value="Rename" />
     <MESSAGE value="README" />
-    <option name="LAST_COMMIT_MESSAGE" value="README" />
+    <MESSAGE value="lighTx" />
+    <option name="LAST_COMMIT_MESSAGE" value="lighTx" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/reliablebroadcast_extended_$Launcher.ic" NAME="Launcher Coverage Results" MODIFIED="1589145577373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -533,141 +581,18 @@
     <entry file="file://$PROJECT_DIR$/1.csv" />
     <entry file="file://$PROJECT_DIR$/0.csv" />
     <entry file="file://$PROJECT_DIR$/4.csv" />
-    <entry file="file://$PROJECT_DIR$/src/Tools/Blockchain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#813#814#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/Blockchain.java" />
     <entry file="file://$PROJECT_DIR$/src/Actors/ByzantineActor.java" />
-    <entry file="file://$PROJECT_DIR$/src/Records/8.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="75" selection-start-column="75" selection-end-column="75" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/7.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="75" selection-start-column="75" selection-end-column="75" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/6.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="76" selection-start-column="76" selection-end-column="76" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/5.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/4.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/3.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/2.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/1.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="76" selection-start-column="76" selection-end-column="76" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/0.csv">
-      <provider editor-type-id="csv-text-editor">
-        <state>
-          <caret column="75" selection-start-column="75" selection-end-column="75" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="230" />
-          <column index="5" width="214" />
-          <column index="6" width="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Records/9.csv">
-      <provider editor-type-id="csv-text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Records/8.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/7.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/6.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/5.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/4.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/3.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/2.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/1.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/0.csv" />
+    <entry file="file://$PROJECT_DIR$/src/Records/9.csv" />
     <entry file="file://$PROJECT_DIR$/src/transactions/9.csv" />
     <entry file="file://$PROJECT_DIR$/src/transactions/4.csv" />
     <entry file="file://$PROJECT_DIR$/src/transactions/3.csv" />
@@ -705,30 +630,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/ObjectSizeFetcher.jar!/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/ObjectSizeFetcher.jar!/ObjectSizeFetcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
+    <entry file="jar://$PROJECT_DIR$/ObjectSizeFetcher.jar!/META-INF/MANIFEST.MF" />
+    <entry file="jar://$PROJECT_DIR$/ObjectSizeFetcher.jar!/ObjectSizeFetcher.class" />
+    <entry file="file://$PROJECT_DIR$/sample.csv" />
     <entry file="file://$PROJECT_DIR$/../reliablebroadcast(extended) - UDP/src/Protocol/Converter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -771,17 +675,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actors/eigenTrust.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#computeMatrix#0;class#eigenTrust#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actors/eigenTrust.java" />
     <entry file="file://$PROJECT_DIR$/src/Tools/Router.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -806,23 +700,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actors/Matrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actors/ServerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actors/Matrix.java" />
     <entry file="file://$PROJECT_DIR$/src/Actors/ProbabilisticConsistentBroadcast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -833,29 +711,6 @@
             <element signature="method#rcvEcho#0;class#ProbabilisticConsistentBroadcast#0" />
             <element signature="method#count#0;class#ProbabilisticConsistentBroadcast#0" />
             <element signature="method#gotEnoughEchoes#0;class#ProbabilisticConsistentBroadcast#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actors/ClientThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#ClientThread#0;class#ClientThread#0" />
-            <element signature="method#initCommunicationChannel#0;class#ClientThread#0" />
-            <element signature="method#fileIsEmpty#0;class#ClientThread#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Protocol/Converter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -899,10 +754,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actors/TODO.txt">
+    <entry file="file://$PROJECT_DIR$/src/Actors/TODO.txt" />
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actors/ServerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actors/ProbabilisticSecureBroadcast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setRepliesDelivery#0;class#ProbabilisticSecureBroadcast#0" />
+            <element signature="method#setRepliesReady#0;class#ProbabilisticSecureBroadcast#0" />
+            <element signature="method#rcvReadySub#0;class#ProbabilisticSecureBroadcast#0" />
+            <element signature="method#counter#0;class#ProbabilisticSecureBroadcast#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actors/ClientThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="53" column="43" lean-forward="true" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#ClientThread#0;class#ClientThread#0" />
+            <element signature="method#initCommunicationChannel#0;class#ClientThread#0" />
+            <element signature="method#fileIsEmpty#0;class#ClientThread#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -916,48 +809,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actors/ProbabilisticSecureBroadcast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setRepliesDelivery#0;class#ProbabilisticSecureBroadcast#0" />
-            <element signature="method#setRepliesReady#0;class#ProbabilisticSecureBroadcast#0" />
-            <element signature="method#rcvReadySub#0;class#ProbabilisticSecureBroadcast#0" />
-            <element signature="method#counter#0;class#ProbabilisticSecureBroadcast#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actors/EigenReputation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1458#1662#0" />
-            <element signature="e#1668#1853#0" />
-            <element signature="e#1859#2013#0" />
-            <element signature="e#2019#2514#0" />
-            <element signature="e#2812#3812#0" />
-            <element signature="e#5380#6266#0" />
-            <element signature="e#6272#7804#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Actors/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+        <state relative-caret-position="96">
+          <caret line="94" column="18" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#generateKeys#0;class#Node#0" />
@@ -965,7 +820,6 @@
             <element signature="method#sign#0;class#Node#0" />
             <element signature="method#verify#0;class#Node#0" />
             <element signature="method#omega#0;class#Node#0" />
-            <element signature="method#sample#0;class#Node#0" />
             <element signature="method#waitTillFinished#0;class#Node#0" />
             <element signature="method#createContent#0;class#Node#0" />
             <element signature="method#probing#0;class#Node#0" />
@@ -974,6 +828,44 @@
             <element signature="method#receive#0;class#Node#0" />
             <element signature="method#send#0;class#Node#0" />
             <element signature="method#readContent#0;class#Node#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actors/EigenReputation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="92" column="79" selection-start-line="92" selection-start-column="79" selection-end-line="92" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#EigenReputation#0;class#EigenReputation#0" />
+            <element signature="method#setLocalScore#0;class#EigenReputation#0" />
+            <element signature="method#initScoreMatrix#0;class#EigenReputation#0" />
+            <element signature="method#computePretrustVector#0;class#EigenReputation#0" />
+            <element signature="method#SubscribeToPreTrusted#1;class#EigenReputation#0" />
+            <element signature="e#2865#2874#0" expanded="true" />
+            <element signature="method#rcvPreTrustedSubscription#0;class#EigenReputation#0" />
+            <element signature="method#matrixNormalization#0;class#EigenReputation#0" />
+            <element signature="e#3062#3677#1" />
+            <element signature="method#sendLocalScore#0;class#EigenReputation#0" />
+            <element signature="method#computationProcess#0;class#EigenReputation#0" />
+            <element signature="method#StoreReceivedScores#0;class#EigenReputation#0" />
+            <element signature="e#4853#4921#1" />
+            <element signature="method#rcvScore#0;class#EigenReputation#0" />
+            <element signature="method#ComputeGlobalScoreNew#0;class#EigenReputation#0" />
+            <element signature="method#hasConverged#0;class#EigenReputation#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Protocol/Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#sam#0;class#Converter#0" />
+            <element signature="e#1999#2069#0" />
           </folding>
         </state>
       </provider>

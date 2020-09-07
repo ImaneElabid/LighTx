@@ -56,17 +56,21 @@ public class EigenReputation {
     }
 
     public double[] computePretrustVector() {
-        for (int k = 0; k < nodesNbr; k++) {
-            p[k] = 1. / nodesNbr;
+        for (int k = 0; k < TRUSTED_POOL_SIZE; k++) {
+            p[k] = 1. / TRUSTED_POOL_SIZE;
         }
         return p;
     }
 
-    //subscription to trust set
-    public void SubscribeToPreTrusted(int size) { //distanct elements
+    public void SubscribeToPreTrusted(int size) { //distinct elements
         Message preTrusted = new Message(node.id, "Pre-Trusted");
+        HashSet<Integer> sample = new HashSet<Integer>();
         try {
-            HashSet<Integer> sample = node.omega(size, nodesNbr);
+            Random rand = new Random();
+            while (sample.size() < size) {
+                int item = rand.nextInt(TRUSTED_POOL_SIZE);
+                sample.add(TRUSTED_POOL.get(item));
+            }
             setPreTrustedSet(new ArrayList<>(sample));
             for (int p : preTrustedSet) {
                 node.send(node.nodesSockets.get(p), preTrusted);
@@ -114,7 +118,7 @@ public class EigenReputation {
         for (Integer index : preTrustedSubscriptionSet) {
             try {
                 node.send(node.nodesSockets.get(index), localScore);
-//                System.out.println(" Score sent from: " + node.id + " to: " + index +"  at iteration: " + roundSending.get());
+                System.out.println(" Score sent from: " + node.id + " to: " + index + "  at iteration: " + roundSending.get());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -122,21 +126,20 @@ public class EigenReputation {
     }
 
     public void computationProcess() {
-        for (int i = 0; i < preTrustedSet.size(); i++)
+        for (int i = 0; i < preTrustedSet.size(); i++) //copy received scores into score matrix
             C[receivedScores.get(roundOfComputation.get()).get(i).getSenderID()] = receivedScores.get(roundOfComputation.get()).get(i).getLocalScore();
 //        receivedScores.remove(roundOfComputation);
-        ComputeGlobalScoreNew(p, C);
+        ComputeGlobalScore(p, C);
     }
 
     public void StoreReceivedScores(Message msg) {
         if (!receivedScores.containsKey(msg.getRound())) {
-            receivedScores.put(msg.getRound(), new ArrayList<Message>(Arrays. asList(msg)));
-
-        } else if (receivedScores.get(msg.getRound()).size() < 2){
+            receivedScores.put(msg.getRound(), new ArrayList<Message>(Arrays.asList(msg)));
+        } else if (receivedScores.get(msg.getRound()).size() < T_SIZE) {
             receivedScores.get(msg.getRound()).add(msg);
         }
 //        receivedScores.forEach((key, value) -> System.out.println(node.id+") "+key + ":" + value));
-        }
+    }
 
     public void rcvScore(Message msg) {
         if (!converged.get()) {
@@ -152,14 +155,13 @@ public class EigenReputation {
                         e.printStackTrace();
                     }
                 } else {
-//                    if (alreadyExecuted.compareAndSet(false, true))
-                        computationProcess();
+                    computationProcess();
                 }
             }
         }
     }
 
-    public void ComputeGlobalScoreNew(double[] p, double[][] scoreMatrix) {
+    public void ComputeGlobalScore(double[] p, double[][] scoreMatrix) {
         // normalized matrix C
         double[][] C = matrixNormalization(scoreMatrix, p);
         // execute algorithm

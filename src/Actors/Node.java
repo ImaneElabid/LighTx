@@ -11,8 +11,7 @@ import java.security.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static Protocol.Converter.PROBE_SIZE;
-import static Protocol.Converter.nodesNbr;
+import static Protocol.Converter.*;
 
 
 /*
@@ -38,7 +37,6 @@ public class Node extends Thread {
 
     // Label to detect whither initialization is finished or not to start broadcast
     static AtomicInteger finished = new AtomicInteger(0);
-
     // Router
     Router router = new Router(this);
 
