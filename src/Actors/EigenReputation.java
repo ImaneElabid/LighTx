@@ -133,7 +133,7 @@ public class EigenReputation {
         if (receivedScores.containsKey(msg.getRound()) && receivedScores.get(msg.getRound()).size() < 2) {
             receivedScores.get(msg.getRound()).add(msg);
         } else {
-            receivedScores.put(msg.getRound(), new ArrayList<Message>());
+            receivedScores.put(msg.getRound(), new ArrayList<Message>(Arrays. asList(msg)));
         }
         receivedScores.entrySet().forEach(entry -> {
             System.out.println(node.id + ") " + entry.getKey() + " : " + entry.getValue());
