@@ -79,7 +79,7 @@ public class EigenReputation {
     public void rcvPreTrustedSubscription(Message msg) {
         preTrustedSubscriptionSet.add(msg.getSenderID());
         try {
-            sleep(50);
+            sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -119,7 +119,6 @@ public class EigenReputation {
                 e.printStackTrace();
             }
         }
-        System.out.println(node.id + ") roundSending : " + roundSending.incrementAndGet());
     }
 
     public void computationProcess() {
@@ -130,15 +129,14 @@ public class EigenReputation {
     }
 
     public void StoreReceivedScores(Message msg) {
-        if (receivedScores.containsKey(msg.getRound()) && receivedScores.get(msg.getRound()).size() < 2) {
-            receivedScores.get(msg.getRound()).add(msg);
-        } else {
+        if (!receivedScores.containsKey(msg.getRound())) {
             receivedScores.put(msg.getRound(), new ArrayList<Message>(Arrays. asList(msg)));
+
+        } else if (receivedScores.get(msg.getRound()).size() < 2){
+            receivedScores.get(msg.getRound()).add(msg);
         }
-        receivedScores.entrySet().forEach(entry -> {
-            System.out.println(node.id + ") " + entry.getKey() + " : " + entry.getValue());
-        });
-    }
+//        receivedScores.forEach((key, value) -> System.out.println(node.id+") "+key + ":" + value));
+        }
 
     public void rcvScore(Message msg) {
         if (!converged.get()) {
@@ -147,13 +145,14 @@ public class EigenReputation {
             if (receivedScores.containsKey(roundOfComputation.get())) {
                 if (receivedScores.get(roundOfComputation.get()).size() < preTrustedSet.size()) { //preTrustedSet.size()
                     try {
-                        sleep(100);
+                        sleep(50);
                         System.out.println(node.id + ") waiting for .. " + roundOfComputation.get());
+//                        rcvScore(msg);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 } else {
-                    if (alreadyExecuted.compareAndSet(false, true))
+//                    if (alreadyExecuted.compareAndSet(false, true))
                         computationProcess();
                 }
             }
@@ -189,13 +188,13 @@ public class EigenReputation {
             System.out.println("(" + node.id + ") finale c_i : " + trust);
             converged.set(true);
         } else {
+            System.out.println(node.id + ") roundSending : " + roundSending.incrementAndGet());
+            System.out.println(node.id + ") roundOfComputation : " + roundOfComputation.incrementAndGet());
             this.c_i = t_new;
             C[node.id] = t_new;
-            System.out.println(node.id + ") roundOfComputation : " + roundOfComputation.incrementAndGet());
             sendLocalScore(c_i);
         }
     }
-
 
     public boolean hasConverged(double[] t_new, double[] t_old, double epsilon) {
         double sum = 0;
