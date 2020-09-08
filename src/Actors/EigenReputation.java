@@ -14,143 +14,103 @@ import static java.lang.Thread.sleep;
  * @author EMS
  */
 
-
 public class EigenReputation {
     Node node;
-    AtomicInteger roundSending = new AtomicInteger(0), roundOfComputation = new AtomicInteger(0);
+    AtomicInteger sendingRound = new AtomicInteger(0), roundOfComputation = new AtomicInteger(0);
     double[] p = new double[nodesNbr];
     double[] c_i = new double[nodesNbr];
-    //    double[] globalTrust = new double[nodesNbr];
-    double[][] C = new double[nodesNbr][nodesNbr]; //C initialized to zero
+    double globalTrust = 0;
 
-    AtomicBoolean alreadyExecuted = new AtomicBoolean(false);
     AtomicBoolean converged = new AtomicBoolean(false);
 
-    ArrayList<Integer> preTrustedSet = new ArrayList<>();      // size(T) // from whom I receive
-    ArrayList<Integer> preTrustedSubscriptionSet = new ArrayList<>(); //to whom i send
-    HashMap<Integer, ArrayList<Message>> receivedScores = new HashMap<Integer, ArrayList<Message>>();
+    ArrayList<Integer> a_i = new ArrayList<>();      // size(T) // from whom I receive
+    ArrayList<Integer> b_i = new ArrayList<>(); //to whom i send
+    ArrayList<Integer> preTrustedSet = new ArrayList<>(); //to whom i send
+    HashMap<Integer, ArrayList<Message>> received = new HashMap<Integer, ArrayList<Message>>();
 
     /************************************************************************/
-
     public EigenReputation(Node n) {
         this.node = n;
-        this.p = computePretrustVector();
-        setLocalScore(nodesNbr);
+        SubscribeToPreTrusted(T_SIZE);
+        setScore(nodesNbr);
     }
-
     /************************************************************************/
-    public void setPreTrustedSet(ArrayList<Integer> preTrustedSet) {
+    private void setPreTrustedSet(ArrayList<Integer> preTrustedSet) {
         this.preTrustedSet = preTrustedSet;
     }
 
-    public void setLocalScore(int size) {
-        Random r = new Random(node.id);
-        for (int j = 0; j < size; j++) {
-            this.c_i[j] = r.nextInt(2);
+    public void SubscribeToPreTrusted(int size) { //distinct elements
+        HashSet<Integer> sample = new HashSet<>();
+        Random rand = new Random();
+        while (sample.size() < size) {
+            int item = rand.nextInt(TRUSTED_POOL_SIZE);
+            sample.add(TRUSTED_POOL.get(item));
         }
-        initScoreMatrix(c_i);
-    }
-
-    public void initScoreMatrix(double[] myScore) {
-        C[node.id] = myScore; // add local scoreMX to the row corresponding to node's id
+        setPreTrustedSet(new ArrayList<>(sample));
+//        System.out.println(node.id+" pretrusted : "+preTrustedSet);
+        this.p = computePretrustVector();
     }
 
     public double[] computePretrustVector() {
-        for (int k = 0; k < TRUSTED_POOL_SIZE; k++) {
-            p[k] = 1. / TRUSTED_POOL_SIZE;
+        for (int k = 0; k < nodesNbr; k++) {
+            if (preTrustedSet.contains(k))
+                p[k] = 1. / T_SIZE;
+            else
+                p[k] = 0.;
         }
         return p;
     }
 
-    public void SubscribeToPreTrusted(int size) { //distinct elements
-        Message preTrusted = new Message(node.id, "Pre-Trusted");
-        HashSet<Integer> sample = new HashSet<Integer>();
-        try {
-            Random rand = new Random();
-            while (sample.size() < size) {
-                int item = rand.nextInt(TRUSTED_POOL_SIZE);
-                sample.add(TRUSTED_POOL.get(item));
-            }
-            setPreTrustedSet(new ArrayList<>(sample));
-            for (int p : preTrustedSet) {
-                node.send(node.nodesSockets.get(p), preTrusted);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void setScore(int size) {
+        Random r = new Random(1);
+        for (int j = 0; j < size; j++) {
+            this.c_i[j] = r.nextInt(2);
         }
+        System.out.println(node.id+" : "+Arrays.toString(c_i));
     }
 
-    public void rcvPreTrustedSubscription(Message msg) {
-        preTrustedSubscriptionSet.add(msg.getSenderID());
-        try {
-            sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public void setA_iSet() {
+        Message query = new Message(node.id, "Query");
+        for (int peer = 0; peer < nodesNbr; peer++) {
+            if (c_i[peer] != 0.)
+                a_i.add(peer);
         }
-        sendLocalScore(c_i); //send my scoreMX
-    }
-
-    public double[][] matrixNormalization(final double[][] matrix, double[] p) { //opinionCount = node.c_i
-        double[][] C_new = new double[matrix.length][matrix.length];
-        // normalize matrix column-wise
-        for (int col = 0; col < C_new.length; col++) {
-            int colSum = 0;
-
-            for (int row = 0; row < C_new[col].length; row++)
-                colSum += matrix[row][col];
-
-            if (colSum > 0) {
-                // at least someone has an opinion
-                final double normalization = colSum;
-                for (int row = 0; row < C_new[col].length; row++)
-                    C_new[row][col] = matrix[row][col] / normalization;
-            } else {
-                // if a peer trusts/knows no-one
-                for (int row = 0; row < C_new[col].length; row++)
-                    C_new[row][col] = p[row];
-            }
-        }
-        return C_new;
-    }
-
-    public void sendLocalScore(double[] score) {  // send node.c_i
-        Message localScore = new Message(node.id, "score", score, roundSending.get());
-        for (Integer index : preTrustedSubscriptionSet) {
+        for (int p : a_i) {
             try {
-                node.send(node.nodesSockets.get(index), localScore);
-                System.out.println(" Score sent from: " + node.id + " to: " + index + "  at iteration: " + roundSending.get());
+                node.send(node.nodesSockets.get(p), query);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void computationProcess() {
-        for (int i = 0; i < preTrustedSet.size(); i++) //copy received scores into score matrix
-            C[receivedScores.get(roundOfComputation.get()).get(i).getSenderID()] = receivedScores.get(roundOfComputation.get()).get(i).getLocalScore();
-//        receivedScores.remove(roundOfComputation);
-        ComputeGlobalScore(p, C);
+    public void rcvQuery(Message msg) {
+        b_i.add(msg.getSenderID());
+        sendLocalScore(c_i, p[node.id]); //send my scoreMX
     }
 
-    public void StoreReceivedScores(Message msg) {
-        if (!receivedScores.containsKey(msg.getRound())) {
-            receivedScores.put(msg.getRound(), new ArrayList<Message>(Arrays.asList(msg)));
-        } else if (receivedScores.get(msg.getRound()).size() < T_SIZE) {
-            receivedScores.get(msg.getRound()).add(msg);
+    public void sendLocalScore(double[] c_i, double t_k) {  // send node.c_ij*ti
+        for (Integer index : b_i) {
+            double score = c_i[index] * t_k;
+            Message localScore = new Message(node.id, "score", score, sendingRound.get());
+            try {
+                node.send(node.nodesSockets.get(index), localScore);
+                System.out.println("(" + node.id +") sent score to : (" + index + ") at iteration[" + sendingRound.get()+"]");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-//        receivedScores.forEach((key, value) -> System.out.println(node.id+") "+key + ":" + value));
     }
 
     public void rcvScore(Message msg) {
         if (!converged.get()) {
             StoreReceivedScores(msg);
-            System.out.println(node.id + ") received score [" + msg.getRound() + "] from " + msg.getSenderID());
-            if (receivedScores.containsKey(roundOfComputation.get())) {
-                if (receivedScores.get(roundOfComputation.get()).size() < preTrustedSet.size()) { //preTrustedSet.size()
+            System.out.println(node.id + ") received score [" + msg.getRound() + "] from (" + msg.getSenderID()+")");
+            if (received.containsKey(roundOfComputation.get())) {
+                if (received.get(roundOfComputation.get()).size() < a_i.size()) { //a_i.size()
                     try {
-                        sleep(50);
-                        System.out.println(node.id + ") waiting for .. " + roundOfComputation.get());
-//                        rcvScore(msg);
+                        sleep(150);
+                        System.out.println(node.id + ") waiting for round.. " + roundOfComputation.get());
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -161,47 +121,42 @@ public class EigenReputation {
         }
     }
 
-    public void ComputeGlobalScore(double[] p, double[][] scoreMatrix) {
-        // normalized matrix C
-        double[][] C = matrixNormalization(scoreMatrix, p);
-        // execute algorithm
-        double[] t_new = new double[p.length];
-        double[] t_old = new double[p.length];
-        // t_new = p
-        System.arraycopy(p, 0, t_new, 0, p.length);
-        // t_old = t_new
-        System.arraycopy(C[node.id], 0, t_old, 0, C[node.id].length);
-        // t_new = C * t_old
-        for (int i = 0; i < p.length; i++) {
-            double sum = 0;
-            for (int j = 0; j < p.length; j++)
-                sum += C[node.id][j] * C[j][i];
-            t_new[i] = sum;
+    public void StoreReceivedScores(Message msg) {
+        if (!received.containsKey(msg.getRound())) {
+            received.put(msg.getRound(), new ArrayList<>(Arrays.asList(msg)));
+        } else if (received.get(msg.getRound()).size() < a_i.size()) {
+            received.get(msg.getRound()).add(msg);
         }
-        // t_new = (1 - weight) * t_new + weight * p
-        for (int i = 0; i < t_old.length; i++)
-            t_new[i] = (dampingFactor) * t_new[i] + (1 - dampingFactor) * p[i];
-        System.out.println("(" + node.id + ") t_new of iteration [" + roundSending.get() + "//" + roundOfComputation.get() + "] is " + Arrays.toString(t_new));
+//        received.forEach((key, value) -> System.out.println(node.id+") "+key + ":" + value));
+    }
+
+    public void computationProcess() {
+        double t_new = 0;
+        for (int i = 0; i < a_i.size(); i++) { //sum received scores
+            t_new += received.get(roundOfComputation.get()).get(i).getLocalScore();
+        }
+        System.out.println(node.id + ") CURRENT t_value :" + t_new);
+        ComputeGlobalScore(p, t_new);
+    }
+
+    public synchronized void ComputeGlobalScore(double[] p, double t_new) {
+        double t_old = t_new;
+
+        t_new = (1 -dampingFactor) * t_new + ( dampingFactor) * p[node.id];
+        System.out.println("(" + node.id + ") t_new of iteration [" + sendingRound.get() + "//" + roundOfComputation.get() + "] is " + t_new);
+        System.out.println(node.id + ") roundOfComputation : " + roundOfComputation.incrementAndGet()+" & sendingRound : " + sendingRound.incrementAndGet());
+        this.globalTrust = t_new;
 
         if (hasConverged(t_new, t_old, EPSILON)) {
-            final Map<Integer, Double> trust = new LinkedHashMap<Integer, Double>();
-            for (int i = 0; i < t_old.length; i++)
-                trust.put(i, t_new[i]);
-            System.out.println("(" + node.id + ") finale c_i : " + trust);
+            System.out.println("(" + node.id + ") final globalTrust : " + t_new);
+            sendLocalScore(c_i, globalTrust);
             converged.set(true);
         } else {
-            System.out.println(node.id + ") roundSending : " + roundSending.incrementAndGet());
-            System.out.println(node.id + ") roundOfComputation : " + roundOfComputation.incrementAndGet());
-            this.c_i = t_new;
-            C[node.id] = t_new;
-            sendLocalScore(c_i);
+            sendLocalScore(c_i, globalTrust);
         }
     }
 
-    public boolean hasConverged(double[] t_new, double[] t_old, double epsilon) {
-        double sum = 0;
-        for (int i = 0; i < t_old.length; i++)
-            sum += (t_new[i] - t_old[i]) * (t_new[i] - t_old[i]);
-        return Math.sqrt(sum) < epsilon;
+    public boolean hasConverged(double t_new, double t_old, double epsilon) {
+        return Math.abs(t_new - t_old) < epsilon;
     }
 }

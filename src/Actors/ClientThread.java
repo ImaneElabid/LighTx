@@ -48,7 +48,8 @@ public class ClientThread extends Thread {
     public void run() {
         try {
             node.waitTillFinished(250); //wait until all node are ON and connection is established
-            node.eigenReputation.SubscribeToPreTrusted(T_SIZE);
+            node.eigenReputation.setA_iSet();
+
             String path = TX_PATH + node.id + ".csv";
 //            if (new File(path).isFile()) {
 //                if (!fileIsEmpty(path)) {

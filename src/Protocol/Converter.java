@@ -13,7 +13,6 @@ public class Converter {
     public static final int TX_NBR = 1; //indicates the number of transactions that will be submitted (to capture last deliver)
 
     public static final double PROBE_SIZE = 273.; // with ids from 0 to 9
-//    public static final Double INITIAL_CREDIT = 1000.d;
     public static final Double EPSILON = 0.1;
     public static final Double dampingFactor = 0.75;
     // Number of Byzantine nodes
@@ -34,7 +33,7 @@ public class Converter {
     public final static int E_SIZE = 2;                   //====           E: echo sample size           ====//
     public final static int R_SIZE = 2; //log + 1;       //====           R: ready sample size          ====//
     public final static int D_SIZE = 2;                 //====           D: delivery sample size       ====//
-    public final static int T_SIZE = 3;                //====           T: pretrusted sample size     ====//
+    public final static int T_SIZE = 4;                //====           T: pretrusted sample size     ====//
     public final static int TRUSTED_POOL_SIZE = 5;              //====     size of the pool of trusted nodes    ====//
     public final static ArrayList<Integer> TRUSTED_POOL = sample(TRUSTED_POOL_SIZE, nodesNbr);
 
@@ -47,7 +46,6 @@ public class Converter {
                 targets.add(candidate);
             }
         }
-        System.out.println("POOL OF TRUSTED NODES :"+ targets);
         return targets; //returns ids of the samples
     }
 

@@ -24,8 +24,8 @@ public class ServerThread extends Thread {
                         node.rcvProbe(msg);
                         break;
 
-                    case "Pre-Trusted" :
-                        node.eigenReputation.rcvPreTrustedSubscription(msg);
+                    case "Query" :
+                        node.eigenReputation.rcvQuery(msg);
                         break;
 
                     case "score" :

@@ -49,7 +49,7 @@ public class Node extends Thread {
         this.socket = new ServerSocket(port);
         generateKeys();
         nodesInfo.put(this.id, this.pubKey);
-         eigenReputation = new EigenReputation(this);
+        eigenReputation = new EigenReputation(this);
     }
 
     /*******************   Getters & Setters   *********************/

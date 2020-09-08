@@ -11,7 +11,8 @@ public class Message implements Serializable {
     private int broadcastLabel;  // HashCode(broadcastInstance)
     private Long time;
     int tag, round;
-    double[] localScore;
+    double[] t_k;
+    double localScore;
             //PROBE
     public Message (Long time,int senderId, String type, int tag){
         this.time = time;
@@ -20,14 +21,14 @@ public class Message implements Serializable {
         this.tag = tag;
     }
 
-        //PRE-TRUSTED SUBSCRIPTION
+        //PRE-TRUSTED +QUERY SUBSCRIPTION
     public Message (int senderId, String type){
         this.senderID = senderId;
         this.type = type;   // pre-trusted
     }
 
         //Score exchange
-    public Message (int senderId, String type, double[] score, int round){
+    public Message (int senderId, String type, double score,int round){
         this.type = type;   // scoreMX
         this.senderID = senderId;
         this.localScore=score;
@@ -81,7 +82,11 @@ public class Message implements Serializable {
         return round;
     }
 
-    public double[] getLocalScore() {
+    public double[] getT_k() {
+        return t_k;
+    }
+
+    public double getLocalScore() {
         return localScore;
     }
 
