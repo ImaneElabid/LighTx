@@ -105,7 +105,7 @@ public class ProbabilisticBroadcast implements BroadcastInterface {
         Message gossipSub = new Message("GossipSub", node.id, brLabel);
         for (Integer index : gossipSample) {
             try {
-//                node.probing(index);
+//                node.probing(index); // send probe messages
                 node.send(node.nodesSockets.get(index), gossipSub);
             } catch (IOException e) {
                 e.printStackTrace();

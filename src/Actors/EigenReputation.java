@@ -40,14 +40,7 @@ public class EigenReputation {
     }
 
     public void SubscribeToPreTrusted(int size) { //distinct elements
-        HashSet<Integer> sample = new HashSet<>();
-        Random rand = new Random();
-        while (sample.size() < size) {
-            int item = rand.nextInt(TRUSTED_POOL_SIZE);
-            sample.add(TRUSTED_POOL.get(item));
-        }
-        setPreTrustedSet(new ArrayList<>(sample));
-//        System.out.println(node.id+" pretrusted : "+preTrustedSet);
+        setPreTrustedSet(new ArrayList<>(TRUSTED_POOL));
         this.p = computePretrustVector();
     }
 
@@ -58,15 +51,16 @@ public class EigenReputation {
             else
                 p[k] = 0.;
         }
+//        System.out.println(Arrays.toString(p));
         return p;
     }
 
     public void setScore(int size) {
-        Random r = new Random(1);
+        Random r = new Random();
         for (int j = 0; j < size; j++) {
             this.c_i[j] = r.nextInt(2);
         }
-        System.out.println(node.id+" : "+Arrays.toString(c_i));
+//        System.out.println(node.id+" : "+Arrays.toString(c_i));
     }
 
     public void setA_iSet() {
@@ -95,7 +89,7 @@ public class EigenReputation {
             Message localScore = new Message(node.id, "score", score, sendingRound.get());
             try {
                 node.send(node.nodesSockets.get(index), localScore);
-                System.out.println("(" + node.id +") sent score to : (" + index + ") at iteration[" + sendingRound.get()+"]");
+//                System.out.println("(" + node.id +") sent score to: (" + index + ") at iteration[" + sendingRound.get()+"]");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -105,7 +99,7 @@ public class EigenReputation {
     public void rcvScore(Message msg) {
         if (!converged.get()) {
             StoreReceivedScores(msg);
-            System.out.println(node.id + ") received score [" + msg.getRound() + "] from (" + msg.getSenderID()+")");
+//            System.out.println(node.id + ") received score [" + msg.getRound() + "] from (" + msg.getSenderID()+")");
             if (received.containsKey(roundOfComputation.get())) {
                 if (received.get(roundOfComputation.get()).size() < a_i.size()) { //a_i.size()
                     try {
@@ -135,16 +129,16 @@ public class EigenReputation {
         for (int i = 0; i < a_i.size(); i++) { //sum received scores
             t_new += received.get(roundOfComputation.get()).get(i).getLocalScore();
         }
-        System.out.println(node.id + ") CURRENT t_value :" + t_new);
         ComputeGlobalScore(p, t_new);
     }
 
-    public synchronized void ComputeGlobalScore(double[] p, double t_new) {
+    public void ComputeGlobalScore(double[] p, double t_new) {
         double t_old = t_new;
 
         t_new = (1 -dampingFactor) * t_new + ( dampingFactor) * p[node.id];
         System.out.println("(" + node.id + ") t_new of iteration [" + sendingRound.get() + "//" + roundOfComputation.get() + "] is " + t_new);
-        System.out.println(node.id + ") roundOfComputation : " + roundOfComputation.incrementAndGet()+" & sendingRound : " + sendingRound.incrementAndGet());
+        roundOfComputation.incrementAndGet();
+        sendingRound.incrementAndGet();
         this.globalTrust = t_new;
 
         if (hasConverged(t_new, t_old, EPSILON)) {

@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static Protocol.Converter.*;
-
 /**
  * @author EMS
  */
@@ -170,6 +168,8 @@ public class ProbabilisticSecureBroadcast implements BroadcastInterface {
 
     @Override
     public void deliver(Message psbDelivredMsg) {
-//        System.out.println(node.id + ") ---- <psb.Deliver> : " + display+ " from ("+psbDelivredMsg.getSenderID()+")");
+        String display = psbDelivredMsg.getContent().getValue() + ":" + psbDelivredMsg.getContent().getRecipientID();
+
+        System.out.println(node.id + ") ---- <psb.Deliver> : " + display + " from (" + psbDelivredMsg.getSenderID() + ")");
     }
 }

@@ -126,7 +126,6 @@ public class ProbabilisticConsistentBroadcast implements BroadcastInterface {
     public void deliver(Message pcbDeliveredMsg) throws Exception {
 //        String display = pcbDeliveredMsg.getContent().getValue() + ":" + pcbDeliveredMsg.getContent().getRecipientID();
 //        System.out.println(node.id + ") ---- <pcb.Deliver> : " + display+ " from ("+pcbDeliveredMsg.getSenderID()+")");
-//        psbUpper.sendReadyMsg(this.echo);
         psbUpper.sendReadyMsg(pcbDeliveredMsg);
     }
 }

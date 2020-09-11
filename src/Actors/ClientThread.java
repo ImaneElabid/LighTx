@@ -3,6 +3,7 @@ package Actors;
 import Protocol.Converter;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -51,17 +52,16 @@ public class ClientThread extends Thread {
             node.eigenReputation.setA_iSet();
 
             String path = TX_PATH + node.id + ".csv";
-//            if (new File(path).isFile()) {
-//                if (!fileIsEmpty(path)) {
-//                    node.readContent(path);
-////                    synchronized (node.content){
-//                        while (!node.content.isEmpty()) {
-//                        // detects the start time of the broadcast operations
-//                        int label = node.generateBrLabel(node.getId() + System.nanoTime());
-//                        node.router.selectBrChannel(label).broadcast();
-//                    }}
-//                }
-//            }
+            if (new File(path).isFile()) {
+                if (!fileIsEmpty(path)) {
+                    node.readContent(path);
+                        while (!node.content.isEmpty()) {
+                        // detects the start time of the broadcast operations
+                        int label = node.generateBrLabel(node.getId() + System.nanoTime());
+                        node.router.selectBrChannel(label).broadcast();
+                    }
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,7 +1,6 @@
 package Actors;
 
 import Protocol.Message;
-
 import java.net.Socket;
 
 public class ServerThread extends Thread {

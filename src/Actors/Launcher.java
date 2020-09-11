@@ -16,7 +16,6 @@ public class Launcher {
             nodes.add(n);
             n.start();
         }
-
         // Launch client nodes
         for (int i = 0; i < nodesNbr; i++) {
             Node n = nodes.get(i);

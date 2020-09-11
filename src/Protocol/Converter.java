@@ -14,7 +14,7 @@ public class Converter {
 
     public static final double PROBE_SIZE = 273.; // with ids from 0 to 9
     public static final Double EPSILON = 0.1;
-    public static final Double dampingFactor = 0.75;
+    public static final Double dampingFactor = 0.3;
     // Number of Byzantine nodes
 
 
