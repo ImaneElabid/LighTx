@@ -18,3 +18,8 @@ To run the project launch the main function in Launcher.java
 
 To modify the algorithm parameters edit Converter.java
 
+### Transactions
+
+Each node have a file of transactions to submit. The application parses the file and broadcasts the transactions concurrently.
+
+The transactions are in the form : <recipient ID : Amount>
