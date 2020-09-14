@@ -22,4 +22,4 @@ To modify the algorithm parameters edit Converter.java
 
 Each node have a file of transactions to submit. The application parses the file and broadcasts the transactions concurrently.
 
-The transactions are in the form : <recipient ID : Amount>
+The transactions are in the form : < recipient ID : Amount >
