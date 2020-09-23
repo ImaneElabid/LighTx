@@ -12,7 +12,7 @@ This is a TCP-based version of **LighTx**.
 
 *PoB* is a basic method we use to measure bandwidth fluctuations for adversaries (Sybil nodes.)
 
-*EigenReputation* is a scoring system that determines the global reputation score for peers of the network by taking into account the opinions of all other peers with whom they interact.
+ReputationScoreSystem is a scoring system that determines the global reputation score for peers of the network by taking into account the opinions of all other peers with whom they interact.
 
 ### Parameters.
 

@@ -14,7 +14,7 @@ import static java.lang.Thread.sleep;
  * @author EMS
  */
 
-public class EigenReputation {
+public class ReputationScoreSys {
     Node node;
     AtomicInteger sendingRound = new AtomicInteger(0), roundOfComputation = new AtomicInteger(0);
     double[] p = new double[nodesNbr];
@@ -29,7 +29,7 @@ public class EigenReputation {
     HashMap<Integer, ArrayList<Message>> received = new HashMap<Integer, ArrayList<Message>>();
 
     /************************************************************************/
-    public EigenReputation(Node n) {
+    public ReputationScoreSys(Node n) {
         this.node = n;
         SubscribeToPreTrusted(T_SIZE);
         setScore(nodesNbr);
