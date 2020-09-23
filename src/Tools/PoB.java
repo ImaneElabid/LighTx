@@ -46,9 +46,9 @@ public class PoB {
         }
         //TODO determine bounds
         if (node.getDelayMap().get(msg.getTag()).size() == 2) {
-            System.out.println(node.getId() + " -> " + msg.getSenderID() + " delays = " + node.getDelayMap().get(msg.getTag()));
+//            System.out.println(node.getId() + " -> " + msg.getSenderID() + " delays = " + node.getDelayMap().get(msg.getTag()));
             measureBW(node.getDelayMap().get(msg.getTag()), msg.getSenderID());
-            System.out.println("BW : " +  node.getBwMap());
+//            System.out.println("BW : " +  node.getBwMap());
         }
     }
 

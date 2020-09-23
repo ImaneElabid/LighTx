@@ -31,7 +31,7 @@ public class ReputationScoreSystem {
     /************************************************************************/
     public ReputationScoreSystem(Node n) {
         this.node = n;
-        SubscribeToPreTrusted(T_SIZE);
+        SubscribeToPreTrusted(P_SIZE);
         setScore(nodesNbr);
     }
     /************************************************************************/
@@ -47,7 +47,7 @@ public class ReputationScoreSystem {
     public double[] computePretrustVector() {
         for (int k = 0; k < nodesNbr; k++) {
             if (preTrustedSet.contains(k))
-                p[k] = 1. / T_SIZE;
+                p[k] = 1. / P_SIZE;
             else
                 p[k] = 0.;
         }

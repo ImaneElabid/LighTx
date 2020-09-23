@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6c4d2b8-c3f9-4780-b4f2-498c3ea270a3" name="Default Changelist" comment="lighTx">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighTx/Actors/ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighTx/Actors/ClientThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighTx/Actors/EigenReputation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighTx/Actors/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighTx/Actors/Launcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighTx/Actors/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighTx/Actors/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighTx/Actors/ProbabilisticBroadcast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighTx/Actors/ProbabilisticBroadcast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighTx/Actors/ProbabilisticConsistentBroadcast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighTx/Actors/ProbabilisticConsistentBroadcast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighTx/Actors/ProbabilisticSecureBroadcast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighTx/Actors/ProbabilisticSecureBroadcast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LighTx/Actors/ServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LighTx/Actors/ServerThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actors/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/ClientThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actors/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actors/ProbabilisticBroadcast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/ProbabilisticBroadcast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actors/ReputationScoreSys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/ReputationScoreSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actors/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/ServerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Protocol/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol/Converter.java" afterDir="false" />
-    </list>
+    <list default="true" id="b6c4d2b8-c3f9-4780-b4f2-498c3ea270a3" name="Default Changelist" comment="lighTx" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
