@@ -2,6 +2,7 @@ package Actors;
 
 import Protocol.Content;
 import Protocol.Message;
+import Tools.PoB;
 import Tools.Router;
 
 import java.io.*;
@@ -24,24 +25,20 @@ import static Protocol.Converter.*;
  */
 
 public class Node extends Thread {
-    private ServerSocket socket;
-    ArrayList<Socket> nodesSockets = new ArrayList();
     int id;
-    EigenReputation eigenReputation;
+    ServerSocket socket;
+    ArrayList<Socket> nodesSockets = new ArrayList();
+    PoB pob;
+    ReputationScoreSystem reputationScore;
     /**************************************************************************************/
     PublicKey pubKey;
     private PrivateKey privateKey;
     static HashMap nodesInfo = new HashMap<Integer, PublicKey>();
     HashMap<Integer, ArrayList<Long>> delayMap = new HashMap<>();
     HashMap<Integer, ArrayList<Double>> bwMap = new HashMap<>();
-
-    // Label to detect whither initialization is finished or not to start broadcast
-    static AtomicInteger finished = new AtomicInteger(0);
-    // Router
+    static AtomicInteger finished = new AtomicInteger(0);  // Label to detect whither initialization is finished or not to start broadcast
     Router router = new Router(this);
-
-    //transactions queue
-    Queue<Content> content = new LinkedList<Content>();
+    Queue<Content> content = new LinkedList<Content>();     //transactions queue
 
     /***********************    Constructor    **********************/
     public Node(int port, int id) throws Exception {
@@ -49,7 +46,8 @@ public class Node extends Thread {
         this.socket = new ServerSocket(port);
         generateKeys();
         nodesInfo.put(this.id, this.pubKey);
-        eigenReputation = new EigenReputation(this);
+        this.pob=new PoB(this);
+        reputationScore = new ReputationScoreSystem(this);
     }
 
     /*******************   Getters & Setters   *********************/
@@ -59,6 +57,22 @@ public class Node extends Thread {
 
     public void setPrivateKey(PrivateKey privateKey) {
         this.privateKey = privateKey;
+    }
+
+    public ArrayList<Socket> getNodesSockets() {
+        return nodesSockets;
+    }
+
+    public int getNodeId() {
+        return id;
+    }
+
+    public HashMap<Integer, ArrayList<Long>> getDelayMap() {
+        return delayMap;
+    }
+
+    public HashMap<Integer, ArrayList<Double>> getBwMap() {
+        return bwMap;
     }
 
     /**************************Key gen + Signature**************************/
@@ -129,37 +143,6 @@ public class Node extends Thread {
 
     public Content createContent(double value, int recipient) throws Exception {
         return new Content(value, recipient, this.sign(String.valueOf(value + recipient), this.getPrivateKey()));
-    }
-
-    public void probing(int destination) { //create and send probe message
-        try {
-            Random rand = new Random();
-            int tag = rand.nextInt();
-            send(nodesSockets.get(destination), new Message(System.currentTimeMillis(), this.id, "Probe", tag));
-            send(nodesSockets.get(destination), new Message(System.currentTimeMillis(), this.id, "Probe", tag));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void rcvProbe(Message msg) {
-        bwMap.put(msg.getSenderID(), new ArrayList<>());
-        if (delayMap.keySet().contains(msg.getTag())) {
-            delayMap.get(msg.getTag()).add(System.currentTimeMillis() - msg.getTime());
-        } else {
-            delayMap.put(msg.getTag(), new ArrayList<>(Arrays.asList(System.currentTimeMillis() - msg.getTime())));
-        }
-        if (delayMap.get(msg.getTag()).size() == 2) {
-            System.out.println(id + " -> " + msg.getSenderID() + " delays = " + delayMap.get(msg.getTag()));
-            measureBW(delayMap.get(msg.getTag()), msg.getSenderID());
-            System.out.println("BW : " + bwMap);
-        }
-    }
-
-    public void measureBW(ArrayList<Long> values, int key) {
-        for (Long t : values) {
-            bwMap.get(key).add(Double.valueOf(t / PROBE_SIZE));
-        }
     }
 
     /**********************************Send & receive***********************************/

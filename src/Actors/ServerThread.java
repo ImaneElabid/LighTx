@@ -20,15 +20,15 @@ public class ServerThread extends Thread {
 
                 switch (msg.getType()) {
                     case "Probe" :
-                        node.rcvProbe(msg);
+                        node.pob.rcvProbe(msg);
                         break;
 
                     case "Query" :
-                        node.eigenReputation.rcvQuery(msg);
+                        node.reputationScore.rcvQuery(msg);
                         break;
 
                     case "score" :
-                        node.eigenReputation.rcvScore(msg);
+                        node.reputationScore.rcvScore(msg);
                         break;
 
                     case "GossipSub":
